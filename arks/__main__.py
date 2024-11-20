@@ -302,6 +302,7 @@ try:
             port=config.devport,
             log_level=config.log_level,
             reload=reload,
+            workers=config.workers,
         )
         return 0
 

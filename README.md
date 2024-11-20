@@ -66,3 +66,11 @@ Then run the local server:
 ```
 python -m arks -c dev-config.env serve
 ```
+
+## Run a Docker image
+
+```shell
+docker run -p 8000:8000 -v $PWD/data:/data ghcr.io/cdluc3/arksorg-site
+```
+
+And open http://localhost:8000 in your browser.
