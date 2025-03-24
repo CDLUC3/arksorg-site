@@ -24,7 +24,6 @@ https://arks.org/.info/PID
 
 The response of the resolver is dependent on the configuration information. The `arks.org` resolver is configured with the information in the NAAN registry, the public view of which is located at: https://cdluc3.github.io/naan_reg_priv/. 
 
-
 ## Test Cases
 
 Test case records are described in JSON of the following structure:
@@ -192,7 +191,7 @@ This configuration is different from most in that the target URL is constructed 
 
 ### Test Case `ark:19156/tkt42/03n01`
 
-This configuration is different from most in that the target URL is constructed from the suffix portion of the PID, i.e. the string "/03n01" that follows the `scheme + ":" + prefix + "/" + value`.
+This configuration is different from most in that the target URL is constructed from the suffix portion of the PID, i.e. the string "/03n01" that follows the `scheme + ":" + prefix + "/" + value` configuration entries.
 
 ```json
 {
