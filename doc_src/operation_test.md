@@ -51,7 +51,9 @@ Test case records are described in JSON of the following structure:
 }
 ```
 
-Values in the `definition` part must match the corresponding entry in the NAAN registry. 
+A worked example follows.
+
+### Test Case `ark:/99166/w6sr6tn8`
 
 Given the PID `ark:/99166/w6sr6tn8` first locate the NAAN record by looking for the prefix (NAAN) "99166". Note that there are five entries in the registry with that prefix, one NAAN, and four "shoulders" `p3`, `p5`, `p9`, and `w6`. The test identifier uses the shoulder `w6`, and so the configuration for `99166/w6` contains the intended target. When this configuration is loaded in the resolver, a unique key is created that is composed of the scheme, prefix, and shoulder (if present). Thus, the unique configuration key for this NAAN record would be "`ark:99166/w6`".
 
@@ -87,7 +89,7 @@ To evaluate this test case:
 
 Additional test cases are provided below:
 
-PID: `ark:/65665/3f9748e2c-affd-44ee-9c14-4eb966e2955c`
+### Test Case `ark:/65665/3f9748e2c-affd-44ee-9c14-4eb966e2955c`
 
 This NAAN ultimately resolves to the Smithsonian Institute, however an intermediate resolver operated by EZID is the registered target for this NAAN.
 
@@ -114,7 +116,7 @@ This NAAN ultimately resolves to the Smithsonian Institute, however an intermedi
 ```
 
 
-PID: `ark:27023/829db79be004882891dd7b88c2ea6236`
+### Test Case `ark:27023/829db79be004882891dd7b88c2ea6236`
 
 ```json
 {
@@ -138,7 +140,7 @@ PID: `ark:27023/829db79be004882891dd7b88c2ea6236`
 }
 ```
 
-PID: `ark:67531/metadc3211`
+### Test Case `ark:67531/metadc3211`
 
 ```json
 {
@@ -162,7 +164,7 @@ PID: `ark:67531/metadc3211`
 }
 ```
 
-PID: `ark:69774/rgm2020`
+### Test Case `ark:69774/rgm2020`
 
 This configuration is different from most in that the target URL is constructed from the value portion of the PID, i.e. the string "rgm2020" that follows the `scheme + ":" + prefix + "/"`.
 
@@ -188,7 +190,7 @@ This configuration is different from most in that the target URL is constructed 
 }
 ```
 
-PID: `ark:19156/tkt42/03n01`
+### Test Case `ark:19156/tkt42/03n01`
 
 This configuration is different from most in that the target URL is constructed from the suffix portion of the PID, i.e. the string "/03n01" that follows the `scheme + ":" + prefix + "/" + value`.
 
