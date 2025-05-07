@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "arks"
-version = "0.5.5"
+version = "0.5.6"
 description = "This is the arks.org resolver service."
 authors = ["datadave <605409+datadavev@users.noreply.github.com>"]
 license = "MIT"
