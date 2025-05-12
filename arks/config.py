@@ -26,6 +26,8 @@ class Settings(rslv.config.Settings):
     db_connection_string: str = f"sqlite:///{BASE_FOLDER}/data/registry.sqlite"
     # Label for the type of environment we are running under, e.g. "development", "production"
     environment: str = "production"
+    # Number of workers. Rule of thumb, at least for Gunicorn: 2 x CPU cores + 1 (https://docs.gunicorn.org/en/stable/design.html#how-many-workers)
+    workers: int = 1,
     # Allow application information to be exposed in the api
     allow_appinfo: bool = False
     # Path to logfile, fall back to stderr if None
