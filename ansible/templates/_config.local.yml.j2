@@ -4,15 +4,18 @@
 # Absolute URLs are constructed by contcat baseurl and url
 # See: https://jekyllrb.com/docs/liquid/filters/
 #################
+# inventory_hostname: {{ inventory_hostname }}
+# ansible_hostname: {{ ansible_hostname }}
+#################
 
-{% if '-stg' in ansible_host %}
+{% if ( ansible_hostname | regex_search('.*-stg.*')) %}
 domain: "arks-stg.cdlib.org"
-baseurl: "https://arks-stg.cdlib.org"
-url: ""
+baseurl: ""
+url: "https://arks-stg.cdlib.org"
 destination: ../site
 {% else %}
 domain: "arks.org"
-baseurl: "https://arks.org"
-url: ""
+baseurl: ""
+url: "https://arks.org"
 destination: ../site
 {% endif %}
