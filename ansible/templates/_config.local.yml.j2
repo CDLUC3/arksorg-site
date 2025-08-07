@@ -1,0 +1,18 @@
+#################
+# Site setting
+# Local overrides
+# Absolute URLs are constructed by contcat baseurl and url
+# See: https://jekyllrb.com/docs/liquid/filters/
+#################
+
+{% if '-stg' in ansible_host %}
+domain: "arks-stg.cdlib.org"
+baseurl: "https://arks-stg.cdlib.org"
+url: ""
+destination: ../site
+{% else %}
+domain: "arks.org"
+baseurl: "https://arks.org"
+url: ""
+destination: ../site
+{% endif %}

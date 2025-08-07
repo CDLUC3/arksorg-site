@@ -30,6 +30,12 @@
     community.general.bundler:
       chdir: "{{deploy_dir}}/arks.github.io"
   
+  - name: Generate host dependent local config for Jekyll
+    ansible.builtin.template:
+      src: "templates/_config.local.yml.j2"
+      dest: "{{ deploy_dir }}/_config.local.yml"
+      force: yes
+
   - name: Run bundle exec jekyll to build arks.github.io site
     ansible.builtin.command:
       chdir: "{{deploy_dir}}/arks.github.io"
