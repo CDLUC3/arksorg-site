@@ -1,4 +1,4 @@
-__version__ = '0.5.9'
+__version__ = '0.6.0'
 
 # Used for tagging log entries
 APP_NAME = "arks"
