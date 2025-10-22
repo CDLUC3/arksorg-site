@@ -282,6 +282,47 @@ def load_naans(config:appconfig.Settings, source:str) -> int:
     return 0
 
 
+@cli.command("load-arks")
+@click.pass_obj
+@click.option(
+    "-s",
+    "--source",
+    default=None,
+    help="Specific ARK identifier records in JSON."
+)
+def load_arks(config:appconfig.Settings, source:str) -> int:
+    """Load specific ARKs into the resolver configuration.
+    
+    This operation loads more specific ARK identifiers into the resolver
+    configuration enabling this service to resolve identifiers
+    in addition to the entries in the naan registry.
+
+    This configuration should be used with caution since it 
+    can override resolution for existing records.
+
+    The source records should contain at least:
+      scheme
+      prefix
+      value
+      target
+      http_code
+
+    Anny additional properties are added to the "properties" element of the record.
+    """
+    L = get_logger()
+    records = []
+    if source.lower().endswith(".jsonl"):
+        # Treat as json-lines formet
+        with open(source, "r") as f:
+            while line := f.readline():
+                records.append(json.loads(line))
+    else:
+        with open(source, "r") as f:
+            records = json.load(f)
+    L.info("Read %s records from %s", len(records), source)
+    pass
+
+
 try:
     import uvicorn
 
