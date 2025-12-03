@@ -292,12 +292,12 @@ def load_naans(config:appconfig.Settings, source:str) -> int:
 )
 def load_arks(config:appconfig.Settings, source:str) -> int:
     """Load specific ARKs into the resolver configuration.
-    
+
     This operation loads more specific ARK identifiers into the resolver
     configuration enabling this service to resolve identifiers
     in addition to the entries in the naan registry.
 
-    This configuration should be used with caution since it 
+    This configuration should be used with caution since it
     can override resolution for existing records.
 
     The source records should contain at least:
@@ -335,7 +335,14 @@ try:
         default=False,
         help="Enable service reload on source change.",
     )
-    def dev_server(config:appconfig.Settings, reload:bool) -> int:
+    @click.option(
+        "-w",
+        "--workers",
+        type=int,
+        default=1,
+        help="Number of workers to run.",
+    )
+    def dev_server(config:appconfig.Settings, reload:bool, workers:int) -> int:
         """Run a local development server."""
         uvicorn.run(
             "arks.app:app",
@@ -343,6 +350,10 @@ try:
             port=config.devport,
             log_level=config.log_level,
             reload=reload,
+            workers=workers,
+            # There's a balance to be struck between concurrency and exhausting file handles.
+            # This seems about the max for this application on a typical dev system.
+            limit_concurrency=220,
         )
         return 0
 
