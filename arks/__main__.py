@@ -339,7 +339,7 @@ try:
         "-w",
         "--workers",
         type=int,
-        default=1,
+        default=config.workers,
         help="Number of workers to run.",
     )
     def dev_server(config:appconfig.Settings, reload:bool, workers:int) -> int:
