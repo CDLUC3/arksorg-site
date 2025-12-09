@@ -343,7 +343,14 @@ try:
         help="Number of workers to run.",
     )
     def dev_server(config:appconfig.Settings, reload:bool, workers:int) -> int:
-        """Run a local development server."""
+        """Run a local development server.
+        For single worker dev server with reload on code changes, use:
+            arks serve --reload
+
+        For multi-worker production-like server, use:
+            arks serve --workers 4
+        4 being the number of desired workers (handles about 500 TPS on my m5 mac).
+        """
         uvicorn.run(
             "arks.app:app",
             host=config.devhost,
