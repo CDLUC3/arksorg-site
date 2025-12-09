@@ -282,6 +282,47 @@ def load_naans(config:appconfig.Settings, source:str) -> int:
     return 0
 
 
+@cli.command("load-arks")
+@click.pass_obj
+@click.option(
+    "-s",
+    "--source",
+    default=None,
+    help="Specific ARK identifier records in JSON."
+)
+def load_arks(config:appconfig.Settings, source:str) -> int:
+    """Load specific ARKs into the resolver configuration.
+
+    This operation loads more specific ARK identifiers into the resolver
+    configuration enabling this service to resolve identifiers
+    in addition to the entries in the naan registry.
+
+    This configuration should be used with caution since it
+    can override resolution for existing records.
+
+    The source records should contain at least:
+      scheme
+      prefix
+      value
+      target
+      http_code
+
+    Anny additional properties are added to the "properties" element of the record.
+    """
+    L = get_logger()
+    records = []
+    if source.lower().endswith(".jsonl"):
+        # Treat as json-lines formet
+        with open(source, "r") as f:
+            while line := f.readline():
+                records.append(json.loads(line))
+    else:
+        with open(source, "r") as f:
+            records = json.load(f)
+    L.info("Read %s records from %s", len(records), source)
+    pass
+
+
 try:
     import uvicorn
 
@@ -294,15 +335,32 @@ try:
         default=False,
         help="Enable service reload on source change.",
     )
-    def dev_server(config:appconfig.Settings, reload:bool) -> int:
-        """Run a local development server."""
+    @click.option(
+        "-w",
+        "--workers",
+        type=int,
+        default=config.workers,
+        help="Number of workers to run.",
+    )
+    def dev_server(config:appconfig.Settings, reload:bool, workers:int) -> int:
+        """Run a local development server.
+        For single worker dev server with reload on code changes, use:
+            arks serve --reload
+
+        For multi-worker production-like server, use:
+            arks serve --workers 4
+        4 being the number of desired workers (handles about 500 TPS on my m5 mac).
+        """
         uvicorn.run(
             "arks.app:app",
             host=config.devhost,
             port=config.devport,
             log_level=config.log_level,
             reload=reload,
-            workers=config.workers,
+            workers=workers,
+            # There's a balance to be struck between concurrency and exhausting file handles.
+            # This seems about the max for this application on a typical dev system.
+            limit_concurrency=220,
         )
         return 0
 

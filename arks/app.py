@@ -30,9 +30,13 @@ def setup_logger(app: fastapi.FastAPI) -> None:
     logging.basicConfig(level=_levels[level_str])
 
 
-@functools.lru_cache(maxsize=None)
-def get_engine(dbcnstr: str) -> sqlalchemy.engine.base.Engine:
-    engine =  sqlalchemy.create_engine(dbcnstr, pool_pre_ping=True)
+@functools.lru_cache(maxsize=32)
+def get_engine(dbcnstr: str, pool_size:int=50, pool_recycle:int=300) -> sqlalchemy.engine.base.Engine:
+    engine =  sqlalchemy.create_engine(
+        dbcnstr,
+        pool_size=pool_size,
+        pool_recycle=pool_recycle,
+    )
     return engine
 
 
