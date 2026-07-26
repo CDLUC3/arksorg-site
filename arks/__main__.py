@@ -81,7 +81,12 @@ def records_to_db(
     _updated = 0
     _nsynonyms = 0
     if meta["updated"] is not None:
-        if meta["updated"] > records_modified_date:
+        # meta["updated"] holds the date_modified of the last records file
+        # loaded (see below), so both sides of this comparison are content
+        # stamps. Comparing against the load time instead would skip files
+        # stamped before the load but published after it (gh-pages build +
+        # CDN cache can delay availability by several minutes).
+        if meta["updated"] >= records_modified_date:
             L.info("Registry is concurrent with naan records")
             return (_total, _added, _updated, _nsynonyms)
     _synonyms = []
@@ -165,6 +170,12 @@ def records_to_db(
                 L.exception(e)
                 L.error("Failed to add key for %s", entry.uniq)
     repository.refresh_metadata()
+    # refresh_metadata() stamps meta.updated with the load time; overwrite it
+    # with the loaded file's date_modified so the freshness check above
+    # compares content stamps rather than when this process happened to run.
+    _meta = repository._session.get(rslv.lib_rslv.piddefine.ConfigMeta, 0)
+    _meta.updated = records_modified_date
+    repository._session.commit()
     return (_total, _added, _updated, _nsynonyms)
 
 
