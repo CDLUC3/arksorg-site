@@ -1,4 +1,10 @@
 {
+  "metadata": {
+    "version": "2.0",
+    "date_created": "2024-08-26T08:09:51+00:00",
+    "date_modified": "2026-07-14T17:42:52+00:00",
+    "description": "NAAN repository"
+  },
   "data": [
     {
       "shoulder": "w6",

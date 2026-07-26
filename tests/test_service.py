@@ -16,9 +16,9 @@ from arks import config as appconfig
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 CONFIG_DB = os.path.join(THIS_FOLDER, "test.db")
 ARKS_DB_CONNECTION_STRING = f"sqlite:///{CONFIG_DB}"
-ARKS_NAANS_SOURCE = os.path.abspath(os.path.join(THIS_FOLDER, "test_data", "naan_records.json"))
+ARKS_NAANS_SOURCE = os.path.abspath(os.path.join(THIS_FOLDER, "test_data", "test_naan_records.json"))
 
-L = logging.getLogger("__name__")
+L = logging.getLogger(__name__)
 
 @pytest.fixture(scope="module")
 def arksapp():
@@ -45,9 +45,13 @@ def arksapp():
     _ = arksmain.records_to_db(records, config.db_connection_string)
 
     # Yield the app for use in the scope of this module's tests
-    yield arks.app.app
-    # cleanup, remove the config db
-    os.unlink(CONFIG_DB)
+    # cleanup, remove the config db after the tests are done
+    try:
+         yield arks.app.app
+    finally:
+         engine.dispose()
+         if os.path.exists(CONFIG_DB):
+             os.unlink(CONFIG_DB)
 
 """Test cases for CORS support by the web application.
 

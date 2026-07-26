@@ -1,6 +1,6 @@
 [project]
 name = "arks"
-version = "0.6.3"
+version = "0.6.4"
 description = "This is the arks.org resolver service."
 authors = [{ name = "datadavev", email = "605409+datadavev@users.noreply.github.com" }]
 requires-python = ">=3.11,<4.0"
