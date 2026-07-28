@@ -4,7 +4,7 @@ Provides a deployment of arks.org on AWS EC2 instance listening on HTTP port 188
 
 Prerequisites:
 - pyenv
-- python >= 3.9
+- python >= 3.11
 - python poetry
 - ruby, bundle, jekyll
 

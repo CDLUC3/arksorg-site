@@ -1,0 +1,198 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "date_created": "2024-08-26T08:09:51+00:00",
+    "date_modified": "2026-07-14T17:42:52+00:00",
+    "description": "NAAN repository"
+  },
+  "data": [
+    {
+      "shoulder": "w6",
+      "naan": "99166",
+      "what": "99166/w6",
+      "who": {
+        "name": "Social Networks and Archival Context Cooperative - historical persons, families, organizations",
+        "name_native": null,
+        "acronym": "SNACC",
+        "location": null
+      },
+      "where": "303 http://socialarchive.iath.virginia.edu",
+      "target": {
+        "url": "http://socialarchive.iath.virginia.edu/ark:/${content}",
+        "http_code": 303
+      },
+      "when": "2013-02-12T00:00:00+00:00",
+      "na_policy": {
+        "orgtype": "NP",
+        "policy": "NR, OP, CC",
+        "tenure": "2013",
+        "policy_url": null
+      },
+      "test_identifier": null,
+      "rtype": "PublicNAANShoulder"
+    },
+    {
+      "what": "65665",
+      "where": "https://si.edu/collections",
+      "target": {
+        "url": "https://ezid.cdlib.org/ark:/${content}",
+        "http_code": 302
+      },
+      "when": "2014-08-18T00:00:00+00:00",
+      "who": {
+        "name": "Smithsonian Institution",
+        "name_native": null,
+        "acronym": "SI",
+        "location": [
+          -77.026,
+          38.891
+        ]
+      },
+      "na_policy": {
+        "orgtype": "NP",
+        "policy": "(:unkn) unknown",
+        "tenure": "2014",
+        "policy_url": null
+      },
+      "test_identifier": null,
+      "service_provider": null,
+      "purpose": "unspecified",
+      "rtype": "PublicNAAN"
+    },
+    {
+      "what": "27023",
+      "where": "https://id.colonialcollections.nl",
+      "target": {
+        "url": "https://id.colonialcollections.nl/ark:/${content}",
+        "http_code": 302
+      },
+      "when": "2023-11-25T00:00:00+00:00",
+      "who": {
+        "name": "Colonial Collections Consortium",
+        "name_native": null,
+        "acronym": "COLCOLL",
+        "location": [
+          5.383,
+          52.158
+        ]
+      },
+      "na_policy": {
+        "orgtype": "NP",
+        "policy": "(:unkn) unknown",
+        "tenure": "2023",
+        "policy_url": null
+      },
+      "test_identifier": null,
+      "service_provider": null,
+      "purpose": "unspecified",
+      "rtype": "PublicNAAN"
+    },
+    {
+      "what": "67531",
+      "where": "http://digital.library.unt.edu",
+      "target": {
+        "url": "http://digital.library.unt.edu/ark:/${content}",
+        "http_code": 302
+      },
+      "when": "2004-10-07T00:00:00+00:00",
+      "who": {
+        "name": "University of North Texas",
+        "name_native": null,
+        "acronym": "UNT",
+        "location": [
+          -97.149,
+          33.21
+        ]
+      },
+      "na_policy": {
+        "orgtype": "NP",
+        "policy": "(:unkn) unknown",
+        "tenure": "2004",
+        "policy_url": null
+      },
+      "test_identifier": null,
+      "service_provider": null,
+      "purpose": "unspecified",
+      "rtype": "PublicNAAN"
+    },
+    {
+      "what": "69774",
+      "where": "https://hdlab.space/ark/${nlid}",
+      "target": {
+        "url": "https://hdlab.space/ark/${value}",
+        "http_code": 302
+      },
+      "when": "2024-12-11T00:00:00+00:00",
+      "who": {
+        "name": "HD LAB. Instituto de Investigaciones Bibliogr\u00e1ficas y Cr\u00edtica Textual (IIBICRIT). CONICET, Argentina",
+        "name_native": null,
+        "acronym": "HD",
+        "location": [
+          -58.391,
+          -34.597
+        ]
+      },
+      "na_policy": {
+        "orgtype": "NP",
+        "policy": "(:unkn) unknown",
+        "tenure": "2024",
+        "policy_url": null
+      },
+      "test_identifier": null,
+      "service_provider": null,
+      "purpose": "unspecified",
+      "rtype": "PublicNAAN"
+    },
+    {
+      "shoulder": "tkt42",
+      "naan": "19156",
+      "what": "19156/tkt42",
+      "who": {
+        "name": "Participatory Image Archives",
+        "name_native": null,
+        "acronym": "PIA",
+        "location": null
+      },
+      "where": "https://ark.participatory-archives.ch",
+      "target": {
+        "url": "https://vocab.participatory-archives.ch/vocab.participatory-archives.ch/brunner${suffix}",
+        "http_code": 302
+      },
+      "when": "2022-04-14T00:00:00+00:00",
+      "na_policy": {
+        "orgtype": "NP",
+        "policy": "(:unkn) unknown",
+        "tenure": "2022",
+        "policy_url": null
+      },
+      "test_identifier": null,
+      "rtype": "PublicNAANShoulder"
+    }
+  ],
+  "index": [
+    [
+      "ark:/99166/w6sr6tn8",
+      0
+    ],
+    [
+      "ark:/65665/3f9748e2c-affd-44ee-9c14-4eb966e2955c",
+      1
+    ],
+    [
+      "ark:27023/829db79be004882891dd7b88c2ea6236",
+      2
+    ],
+    [
+      "ark:67531/metadc3211",
+      3
+    ],
+    [
+      "ark:69774/rgm2020",
+      4
+    ],
+    [
+      "ark:19156/tkt42/03n01",
+      5
+    ]
+  ]
+}
