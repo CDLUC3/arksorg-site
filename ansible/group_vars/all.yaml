@@ -9,4 +9,4 @@ arksorg_repo: 'https://github.com/CDLUC3/arksorg-site.git'
 arksorg_version: 'main'
 
 arksghio_repo: 'https://github.com/arks-org/arks.github.io.git'
-arksghio_version: 'main'
+arksghio_version: '36_upgrade_ruby_jekyll'

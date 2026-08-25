@@ -19,7 +19,7 @@ to perform end-to-end deployment of the arksorg-site service on AWS EC2 hosts.
 
 Execute this playbook on the localhost as user `ezid`:
 ```
-cd ~/install/arksorg-site
+cd ~/install/arksorg-site/ansible
 export ANSIBLE_STDOUT_CALLBACK=debug
 
 ansible-playbook -i hosts deploy_arksorg_site.yaml -CD
@@ -33,6 +33,12 @@ variable `arksorg_version`:
 ```
 ansible-playbook -i hosts deploy_arksorg_site.yaml -e arksorg_version=0.0.2
 ```
+
+Likewise, to test arks.github.io deployments:
+```
+ansible-playbook -i hosts deploy_arksorg_site.yaml -e arksghio_version=36_upgrade_ruby_jekyll
+```
+
 
 
 ### Prereqs (deployed by puppet)
